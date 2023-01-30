@@ -1,6 +1,8 @@
 #include<iostream>
 #include<chrono>
 #include<thread>
+#include "arrays.h"
+
 
 struct input_t {
 	int num1;
@@ -44,7 +46,9 @@ int main() {
 	//twoNumbers numbers = promptTwoNumbers();
 	//displayQuotient(numbers);
 
-	displayBackslashR();
+	//displayBackslashR();
+
+	arrayAverageMenu();
 	
 	return 0;
 }
