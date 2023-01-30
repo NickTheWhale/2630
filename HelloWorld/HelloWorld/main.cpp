@@ -1,4 +1,6 @@
 #include<iostream>
+#include<chrono>
+#include<thread>
 
 struct input_t {
 	int num1;
@@ -25,6 +27,8 @@ int sum(input_t numbers);
 
 void displaySum(input_t numbers);
 
+void displayBackslashR();
+
 
 
 int main() {
@@ -37,8 +41,10 @@ int main() {
 	
 	//displaySum(numbers);
 
-	twoNumbers numbers = promptTwoNumbers();
-	displayQuotient(numbers);
+	//twoNumbers numbers = promptTwoNumbers();
+	//displayQuotient(numbers);
+
+	displayBackslashR();
 	
 	return 0;
 }
@@ -102,4 +108,11 @@ int sum(input_t numbers) {
 
 void displaySum(input_t numbers) {
 	std::cout << "The sum of " << numbers.num1 << ", " << numbers.num2 << ", " << numbers.num3 << ", is " << sum(numbers);
+}
+
+void displayBackslashR() {
+	for (int i = 0; i < 10000; i++) {
+		std::cout << "iteration: " << i << "\r";
+		std::this_thread::sleep_for(std::chrono::microseconds(10));
+	}
 }
