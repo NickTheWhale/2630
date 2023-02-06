@@ -1,7 +1,6 @@
 #include "Triangle.hpp"
 #include <math.h>
-#include <iostream>
-#include <algorithm>
+
 Triangle::Triangle() {
 	sideA = 0;
 	sideB = 0;
@@ -25,19 +24,12 @@ float Triangle::perimeter() {
 }
 
 float Triangle::area() {
-	const int SIZE = 3;
-	float sides[SIZE] = { sideA, sideB, sideC };
-	float* first(&sides[0]);
-	float* last(first + SIZE);
+	float a = sideA;
+	float b = sideB;
+	float c = sideC;
 
-	float a = sides[2];
-	float b = sides[1];
-	float c = sides[0];
-
-
-	float C = acos(((a * a) + (b * b) - (c * c)) / (2 * a * b));
-	std::cout << C;
-	float area = 0.5f * a * b * sin(C);
+	float s = (a + b + c) / 2.0f;
+	float area = sqrt(s * (s - a) * (s - b) * (s - c));
 
 	return area;
 }

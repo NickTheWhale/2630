@@ -2,12 +2,12 @@
 #include <iomanip>	
 #include "Triangle.hpp"
 
-int main(int argc, char *argv) {
+int main() {
 	std::cout << std::fixed << std::setprecision(2);
 	
 	float a, b, c;
 	std::cin >> a >> b >> c;
-	std::cout << "Triangle side lengths " << a << ", " << b << ", " << c << std::endl;
+	std::cout << "Triangle side lengths: " << a << ", " << b << ", " << c << std::endl;
 	
 	Triangle triangle;
 	triangle.setSides(a, b, c);
