@@ -4,7 +4,7 @@ class myStack
 private:
 	int topIndex;
 	const static int MAX_SIZE = 100;
-	char* contents;
+	char contents[MAX_SIZE] = {};
 public:
 	myStack();
 	void push(char c);
@@ -14,7 +14,6 @@ public:
 	bool isFull();
 	char top();
 	void clear();
-	char peek();
 	void print();
 };
 

@@ -3,15 +3,13 @@
 #include <stdio.h>
 
 myStack::myStack() {
-	char contents[MAX_SIZE];
-	this->contents = &contents[0];
 	this->topIndex = -1;
 }
 
 void myStack::push(char c) {
 	if (isFull())
 		throw std::string("Stack is full");
-	contents[topIndex++] = c;
+	contents[++topIndex] = c;
 }
 
 char myStack::pop() {
@@ -41,10 +39,6 @@ char myStack::top() {
 
 void myStack::clear() {
 	topIndex = 0;
-}
-
-char myStack::peek() {
-	return contents[topIndex];
 }
 
 void myStack::print() {
