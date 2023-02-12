@@ -1,9 +1,1 @@
-﻿  main.cpp
-  Triangle.cpp
-C:\Users\loehr\source\repos\2630\Lab02\Lab02\Triangle.cpp(32,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Running Code Analysis for C/C++...
-  Generating Code...
-  Lab02.vcxproj -> C:\Users\loehr\source\repos\2630\Lab02\x64\Debug\Lab02.exe
-C:\Users\loehr\source\repos\2630\Lab02\Lab02\Triangle.cpp(32): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
-C:\Users\loehr\source\repos\2630\Lab02\Lab02\Triangle.cpp(32): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
-C:\Users\loehr\source\repos\2630\Lab02\Lab02\Triangle.cpp(32): warning C26451: Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).
+﻿  Lab02.vcxproj -> C:\Users\nicholas\Repos\2630\Lab02\x64\Debug\Lab02.exe
