@@ -34,5 +34,8 @@ int main() {
 	for (int i = 0; i < size; i++) {
 		std::cout << "location " << i << ": " << arr[i] << std::endl;
 	}
+
+	delete[] arr;
+
 	return 0;
 }
