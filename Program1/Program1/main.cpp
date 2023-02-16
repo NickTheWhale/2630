@@ -11,6 +11,10 @@ int main() {
 	Stack* s = rpn.stack();
 	s->print();
 
+	while (!s->isEmpty()) {
+		std::cout << (char)s->pop() << std::endl;
+	}
+
 	/*for (int i = 0; i < iterations; i++) {
 		RPNEval rpn;
 		rpn.processExpression();

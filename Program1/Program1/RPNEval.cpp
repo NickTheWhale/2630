@@ -36,13 +36,20 @@ void RPNEval::processExpression() {
 }
 
 void RPNEval::processOperand() {
-	char operand;
-	std::cin >> operand;
-	_stack->push(operand);
+	float n;
+	std::cin >> n;
+	_stack->push(n);
 }
 
 void RPNEval::processOperator(char c) {
-	_stack->push(c);
+	DataType a, b, r;
+	a = _stack->pop();
+	b = _stack->pop();
+	if (c == '-') r = b - a;
+	else if (c == '+') r = b + a;
+	else if (c == '*') r = b * a;
+	else r = b / a;
+	_stack->push(r);
 }
 
 bool RPNEval::isValid() const {
@@ -59,5 +66,5 @@ void RPNEval::printIntermediateResults() {
 
 // REMOVE FOR SUBMISSION
 Stack*RPNEval::stack() {
-	return _stack;
+	return _operands;
 }
