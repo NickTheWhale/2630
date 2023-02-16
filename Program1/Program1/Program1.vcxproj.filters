@@ -24,12 +24,18 @@
     <ClCompile Include="Queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RPNEval.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stack.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Queue.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RPNEval.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

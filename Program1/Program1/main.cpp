@@ -1,41 +1,20 @@
 #include <iostream>
-#include "Stack.hpp"
-#include "Queue.hpp"
-
+#include "RPNEval.hpp"
 
 int main() {
-	/*Stack stack;
-	Queue q;
+	/*int iterations;
+	std::cout << "Enter iterations: " << std::endl;
+	std::cin >> iterations;*/
 
-	q.enqueue(1);
-	q.enqueue(2);
-	q.enqueue(3);
-	q.enqueue(4);
-	q.enqueue(5);
+	RPNEval rpn;
+	rpn.processExpression();
+	Stack* s = rpn.stack();
+	s->print();
 
-	q.print();*/
-
-	std::cout << "Enter size: " << std::endl;
-	int size;
-	std::cin >> size;
-
-	int* arr = new int[size];
-	for (int i = 0; i < size; i++) {
-		arr[i] = 0;
-	}
-	for (int i = 0; i < size; i++) {
-		std::cout << "enter an integer: ";
-		int index;
-		std::cin >> index;
-		if (index < size)
-			arr[index]++;
-	}
-
-	for (int i = 0; i < size; i++) {
-		std::cout << "location " << i << ": " << arr[i] << std::endl;
-	}
-
-	delete[] arr;
+	/*for (int i = 0; i < iterations; i++) {
+		RPNEval rpn;
+		rpn.processExpression();
+	}*/
 
 	return 0;
 }

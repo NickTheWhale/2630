@@ -6,13 +6,15 @@ Stack::Stack() {
 	topIndex = -1;
 }
 
-void Stack::push(int i) {
+Stack::~Stack() {};
+
+void Stack::push(DataType i) {
 	if (isFull())
 		throw std::string("Stack is full");
 	contents[++topIndex] = i;
 }
 
-int Stack::pop() {
+DataType Stack::pop() {
 	if (isEmpty())
 		throw std::string("Stack is empty");
 	return contents[topIndex--];
@@ -30,7 +32,7 @@ bool Stack::isFull() {
 	return topIndex + 1 == MAX_SIZE;
 }
 
-int Stack::peek() {
+DataType Stack::peek() {
 	if (isEmpty())
 		throw std::string("Stack is empty");
 	return contents[topIndex];
@@ -43,6 +45,6 @@ void Stack::clear() {
 void Stack::print() {
 	std::cout << "Stack size: " << size() << std::endl;
 	for (int i = 0; i < size(); i++) {
-		std::cout << "location: " << i << ": " << contents[i] << std::endl;
+		std::cout << "location: " << i << ": " << (char)contents[i] << std::endl;
 	}
 }

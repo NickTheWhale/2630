@@ -3,33 +3,33 @@
 #include <iostream>
 
 Queue::Queue(int size) {
-	contents = new int[size];
-	front = 0;
-	rear = -1;
-	currentSize = 0;
-	maxSize = size;
+	_contents = new int[size];
+	_front = 0;
+	_rear = -1;
+	_currentSize = 0;
+	_maxSize = size;
 }
 
 Queue::~Queue() {
-	delete[] contents;
+	delete[] _contents;
 }
 
 void Queue::enqueue(int i) {
 	if (isFull())
 		throw std::string("Queue is full");
-	++currentSize;
-	contents[rear++] = i;
+	_contents[++_rear] = i;
+	++_currentSize;
 }
 
 int Queue::dequeue() {
 	if (isEmpty())
 		throw std::string("Queue is empty");
-	--currentSize;
-	return contents[front++];
+	--_currentSize;
+	return _contents[_front++];
 }
 
 int Queue::size() {
-	return currentSize;
+	return _currentSize;
 }
 
 bool Queue::isEmpty() {
@@ -37,18 +37,24 @@ bool Queue::isEmpty() {
 }
 
 bool Queue::isFull() {
-	return size() == maxSize;
+	return size() == _maxSize;
 }
 
-int Queue::peek() {
+int Queue::front() {
 	if (isEmpty())
 		throw std::string("Queue is empty");
-	return contents[front];
+	return _contents[_front];
+}
+
+int Queue::rear() {
+	if (isFull())
+		throw std::string("Queue is full");
+	return _contents[_rear];
 }
 
 void Queue::print() {
 	std::cout << "Queue size: " << size() << std::endl;
 	for (int i = 0; i < size(); i++) {
-		std::cout << "location: " << i << ": " << contents[i] << std::endl;
+		std::cout << "location: " << i << ": " << _contents[i] << std::endl;
 	}
 }

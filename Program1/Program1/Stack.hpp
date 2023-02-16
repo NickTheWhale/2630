@@ -1,4 +1,7 @@
 #pragma once
+
+typedef float DataType;
+
 class Stack
 {
 private:
@@ -7,12 +10,13 @@ private:
 	int contents[MAX_SIZE] = {};
 public:
 	Stack();
-	void push(int i);
-	int pop();
+	~Stack();
+	void push(DataType i);
+	DataType pop();
 	int size();
 	bool isEmpty();
 	bool isFull();
-	int peek();
+	DataType peek();
 	void clear();
 	void print();
 };
