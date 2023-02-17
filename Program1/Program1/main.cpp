@@ -9,13 +9,8 @@ int main() {
 		std::cout << "Expression " << i + 1 << ":" << std::endl;
 		RPNEval rpn;
 		rpn.processExpression();
-		if (rpn.isValid())
-			std::cout << "The value is: " << rpn.value() << std::endl;
-		else
-			std::cout << "Invalid Expression" << std::endl;
+		rpn.printAnswer();
 		rpn.printIntermediateResults();
-		std::cout << std::endl;
-		std::cin.ignore(256, '\n');
 	}
 
 	std::cout << "Normal Termination of Program 1!" << std::endl;

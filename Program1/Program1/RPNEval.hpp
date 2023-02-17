@@ -2,13 +2,15 @@
 #include "Stack.hpp"
 #include "Queue.hpp"
 
-typedef float OperandType;
+typedef float operand_t;
+#define CHARACTERS_TO_IGNORE (256)
+#define TERMINATING_CHARACTER ('#')
 
 class RPNEval
 {
 private:
 	bool _valid;
-	OperandType _answer;
+	operand_t _answer;
 	Stack* _stack;
 	Queue* _queue;
 	void processOperand();
@@ -19,11 +21,8 @@ public:
 	~RPNEval();
 	void processExpression();
 	bool isValid() const;
-	OperandType value() const;
+	operand_t value() const;
 	void printIntermediateResults();
-
-	// REMOVE FOR SUBMISSION
-	Stack* stack();
-	Queue* queue();
+	void printAnswer() const;
 };
 

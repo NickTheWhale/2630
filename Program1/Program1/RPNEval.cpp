@@ -17,7 +17,6 @@ RPNEval::~RPNEval() {
 void RPNEval::processExpression() {
 	bool done = false;
 	int count = 0;
-	
 	while (_valid && !done) {
 		char c;
 		std::cin >> c;
@@ -26,30 +25,35 @@ void RPNEval::processExpression() {
 			processOperand();
 		}
 		else if (c == '-' || c == '+' || c == '*' || c == '/') {
+			std::cout << c << " ";
 			processOperator(c);
 		}
-		else if (c == '#') {
+		else if (c == TERMINATING_CHARACTER) {
 			done = true;
-			if (!_stack->isEmpty())
-				_answer = _stack->pop();
-			else
-				_valid = false;
 		}
 		else {
+			std::cout << c << " ";
 			_valid = false;
 		}
 	}
+	std::cin.ignore(CHARACTERS_TO_IGNORE, '\n');
+	std::cout << std::endl;
+	if (_stack->size() == 1)
+		_answer = _stack->pop();
+	else
+		_valid = false;
 }
 
 void RPNEval::processOperand() {
-	Stack::DataType n;
-	std::cin >> n;
-	_stack->push(n);
+	Stack::item_t operand;
+	std::cin >> operand;
+	std::cout << operand << " ";
+	_stack->push(operand);
 }
 
 void RPNEval::processOperator(char c) {
 	if (_stack->size() >= 2) {
-		Stack::DataType a, b;
+		Stack::item_t a, b;
 		a = _stack->pop();
 		b = _stack->pop();
 		if (c == '/' && a == 0.0) {
@@ -81,23 +85,21 @@ bool RPNEval::isValid() const {
 	return _valid;
 }
 
-OperandType RPNEval::value() const {
+operand_t RPNEval::value() const {
 	return _answer;
 }
 
 void RPNEval::printIntermediateResults() {
-	std::cout << "The Intermediate Results are:";
+	std::cout << "The Intermediate Results are: ";
 	while (!_queue->isEmpty()) {
-		std::cout << " " << _queue->dequeue();
+		std::cout << _queue->dequeue() << " ";
 	}
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 }
 
-// REMOVE FOR SUBMISSION
-Stack* RPNEval::stack() {
-	return _stack;
-}
-
-Queue* RPNEval::queue() {
-	return _queue;
+void RPNEval::printAnswer() const {
+	if (isValid())
+		std::cout << "The value is: " << value() << std::endl;
+	else
+		std::cout << "Invalid Expression" << std::endl;
 }
