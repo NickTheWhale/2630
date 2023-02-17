@@ -2,49 +2,53 @@
 #include <string>
 #include <iostream>
 
-Stack::Stack() {
-	topIndex = -1;
+Stack::Stack(int size) {
+	_contents = new DataType[size];
+	_topIndex = -1;
+	_maxSize = size;
 }
 
-Stack::~Stack() {};
+Stack::~Stack() {
+	delete[] _contents;
+}
 
-void Stack::push(DataType i) {
+void Stack::push(Stack::DataType i) {
 	if (isFull())
 		throw std::string("Stack is full");
-	contents[++topIndex] = i;
+	_contents[++_topIndex] = i;
 }
 
-DataType Stack::pop() {
+Stack::DataType Stack::pop() {
 	if (isEmpty())
 		throw std::string("Stack is empty");
-	return contents[topIndex--];
+	return _contents[_topIndex--];
 }
 
 int Stack::size() {
-	return topIndex + 1;
+	return _topIndex + 1;
 }
 
 bool Stack::isEmpty() {
-	return topIndex == -1;
+	return _topIndex == -1;
 }
 
 bool Stack::isFull() {
-	return topIndex + 1 == MAX_SIZE;
+	return _topIndex + 1 == _maxSize;
 }
 
-DataType Stack::peek() {
+Stack::DataType Stack::peek() {
 	if (isEmpty())
 		throw std::string("Stack is empty");
-	return contents[topIndex];
+	return _contents[_topIndex];
 }
 
 void Stack::clear() {
-	topIndex = -1;
+	_topIndex = -1;
 }
 
 void Stack::print() {
 	std::cout << "Stack size: " << size() << std::endl;
 	for (int i = 0; i < size(); i++) {
-		std::cout << "location: " << i << ": " << (char)contents[i] << std::endl;
+		std::cout << "location: " << i << ": " << _contents[i] << std::endl;
 	}
 }

@@ -3,7 +3,7 @@
 #include <iostream>
 
 Queue::Queue(int size) {
-	_contents = new int[size];
+	_contents = new DataType[size];
 	_front = 0;
 	_rear = -1;
 	_currentSize = 0;
@@ -14,14 +14,14 @@ Queue::~Queue() {
 	delete[] _contents;
 }
 
-void Queue::enqueue(int i) {
+void Queue::enqueue(Queue::DataType i) {
 	if (isFull())
 		throw std::string("Queue is full");
 	_contents[++_rear] = i;
 	++_currentSize;
 }
 
-int Queue::dequeue() {
+Queue::DataType Queue::dequeue() {
 	if (isEmpty())
 		throw std::string("Queue is empty");
 	--_currentSize;
@@ -40,13 +40,13 @@ bool Queue::isFull() {
 	return size() == _maxSize;
 }
 
-int Queue::front() {
+Queue::DataType Queue::front() {
 	if (isEmpty())
 		throw std::string("Queue is empty");
 	return _contents[_front];
 }
 
-int Queue::rear() {
+Queue::DataType Queue::rear() {
 	if (isFull())
 		throw std::string("Queue is full");
 	return _contents[_rear];

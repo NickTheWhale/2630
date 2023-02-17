@@ -1,15 +1,10 @@
 #pragma once
 
-typedef float DataType;
-
 class Stack
 {
-private:
-	int topIndex;
-	const static int MAX_SIZE = 100;
-	int contents[MAX_SIZE] = {};
 public:
-	Stack();
+	typedef float DataType;
+	Stack(int size = DEFUALT_SIZE);
 	~Stack();
 	void push(DataType i);
 	DataType pop();
@@ -19,5 +14,11 @@ public:
 	DataType peek();
 	void clear();
 	void print();
+
+private:
+	const static int DEFUALT_SIZE = 1000;
+	DataType* _contents;
+	int _topIndex;
+	int _maxSize;
 };
 

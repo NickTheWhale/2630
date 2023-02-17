@@ -13,15 +13,17 @@ private:
 	Queue* _queue;
 	void processOperand();
 	void processOperator(char c);
+
 public:
 	RPNEval();
 	~RPNEval();
 	void processExpression();
 	bool isValid() const;
-	OperandType valid() const;
+	OperandType value() const;
 	void printIntermediateResults();
 
 	// REMOVE FOR SUBMISSION
 	Stack* stack();
+	Queue* queue();
 };
 
