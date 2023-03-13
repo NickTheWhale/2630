@@ -1,36 +1,24 @@
-#include <iostream>
-#include <math.h>
+#include<iostream>
 
-int combination(int n, int r);
 
-int combinationRecursive(int n, int r);
-
-int main(int argc, char* argv) {
-
-	std::cout << combination(5, 3);
-
-	return 0;
+unsigned long Factorial(unsigned long number) {
+	if (number == 0)
+		return 1;
+	else
+		return number * Factorial(number - 1);
 }
 
-int combination(int n, int r) {
-	int n_fact = 0;
-	for (int i = 0; i < n; i++) {
-		n_fact *= i;
-	}
-
-	int r_fact = 0;
-	for (int i = 0; i < r; i++) {
-		r_fact *= i;
-	}
-
-	int n_r_fact = 0;
-	for (int i = 0; i < n - r; i++) {
-		n_r_fact *= i;
-	}
-
-	return n_fact / (r_fact * n_r_fact);
+int sum(int n) {
+	if (n == 0)
+		return 0;
+	return n + sum(n - 1);
 }
 
-int combinationRecursive(int n, int r) {
+int main() {
+	unsigned long number;
+	std::cout << "Enter a number : ";
+	std::cin >> number;
+	std::cout << "The factorial of your number is: " << Factorial(number) << std::endl;
+	std::cout << "The sum of your number is: " << sum(number) << std::endl;
 	return 0;
 }
